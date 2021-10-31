@@ -1,0 +1,47 @@
+﻿@model List<Ibrahim_Belal.Models.Testimonial>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="font-weight: bold; text-align: center; font-size: 47px; margin: 21px;">Testimonials List</h1>
+
+<a href='@Url.Action("New", "Testimonial")'>
+    <button type="button" class="btn btn-primary" style="margin: 10px; font-size: 20px; font-weight: bold;">Add</button>
+</a>
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+
+        <tr>
+            <th>Name</th>
+            <th>Feed Back</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var testimonial in Model)
+        {
+            <tr>
+                <td>@testimonial.Name</td>
+                <td>@testimonial.FeedBack</td>
+                <td>
+                    <a href='@Url.Action("Edit", "Testimonial", new {id = testimonial.Id})'>
+                        <button type="button" class="btn btn-success" style="font-size: 14px;">Edit</button>
+                    </a>
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new {id = testimonial.Id},
+                        new { @class = "btn btn-danger" , onclick = "return confirm('Are you Sure You Want To Delete It ?');"})
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+
+</table>

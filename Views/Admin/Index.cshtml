@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="font-weight: bold; font-size: 47px; margin: 21px;">Admin Page</h1>
+
+<ul>
+
+    <li>
+        <a href='@Url.Action("Index", "Artist")'>
+            <button type="button" class="btn btn-success" style="margin: 10px; font-size: 20px; font-weight: bold;">Artist List</button>
+        </a>
+    </li>
+
+    <li>
+        <a href='@Url.Action("Index", "Portfolio")'>
+            <button type="button" class="btn btn-warning" style="margin: 10px; font-size: 20px; font-weight: bold;">Portfolio List</button>
+        </a>
+    </li>
+
+    <li>
+        <a href='@Url.Action("Index", "Testimonial")'>
+            <button type="button" class="btn btn-danger" style="margin: 10px; font-size: 20px; font-weight: bold;">Testimonials List</button>
+        </a>
+    </li>
+
+    <li>
+        <a href='@Url.Action("Index", "Service")'>
+            <button type="button" class="btn btn-primary" style="margin: 10px; font-size: 20px; font-weight: bold;">Services List</button>
+        </a>
+    </li>
+
+    <li>
+        <a href='@Url.Action("Index", "ContactMessage")'>
+            <button type="button" class="btn btn-success" style="margin: 10px; font-size: 20px; font-weight: bold;">Messages List</button>
+        </a>
+    </li>
+
+</ul>
+

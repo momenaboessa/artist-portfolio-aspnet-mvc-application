@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Ibrahim_Belal.Models.Project>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="font-weight: bold; text-align: center; font-size: 47px; margin: 21px;">Portfolio List</h1>
+
+<a href='@Url.Action("New", "Portfolio")'>
+    <button type="button" class="btn btn-primary" style="margin: 10px; font-size: 20px; font-weight: bold;">Add</button>
+</a>
+
+<table class="table table-bordered table-hover">
+<thead>
+    <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+</thead>
+
+<tbody>
+        
+    @foreach (var project in Model)
+    {
+        <tr>
+            <td>@project.Title</td>
+            <td>@project.Category.Name</td>
+            <td>
+                <a href='@Url.Action("Edit", "Portfolio", new {id = project.Id})'>
+                    <button type="button" class="btn btn-success" style="font-size: 14px;">Edit</button>
+                </a>
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new {id = project.Id},
+                    new { @class = "btn btn-danger" , onclick = "return confirm('Are you Sure You Want To Delete It ?');"})
+            </td>
+
+        </tr>
+    }
+    
+</tbody>
+</table>
+
+
+

@@ -1,0 +1,91 @@
+﻿@model Ibrahim_Belal.Models.Artist
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="font-weight: bold; text-align: center; font-size: 47px; margin: 21px;">Artist Info</h1>
+
+<a href='@Url.Action("Edit", "Artist", new {id = Model.Id})'>
+    <button type="button" class="btn btn-success" style="margin: 10px; font-size: 20px; font-weight: bold;">Edit</button>
+</a>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        
+        <tr>
+            <td>Name</td>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>@Model.Address</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>@Model.PhoneNumber</td>
+        </tr>
+        <tr>
+            <td>Work Time</td>
+            <td>@Model.WorkingPeriod</td>
+        </tr>
+        <tr>
+            <td>Hero Header</td>
+            <td>@Model.HeaderText</td>
+        </tr>
+        <tr>
+            <td>About Text</td>
+            <td>@Model.AboutText</td>
+        </tr>
+        <tr>
+            <td>Portfolio Header</td>
+            <td>@Model.PortfolioText</td>
+        </tr>
+        <tr>
+            <td>Services Header</td>
+            <td>@Model.ServicesText</td>
+        </tr>
+        <tr>
+            <td>Testimonials Header</td>
+            <td>@Model.TestimonialsText</td>
+        </tr>        
+        <tr>
+            <td>Contact Header</td>
+            <td>@Model.ContactText</td>
+        </tr>        
+        <tr>
+            <td>Services Header</td>
+            <td>@Model.ServicesText</td>
+        </tr>        
+        <tr>
+            <td>Facebook</td>
+            <td>@Model.FacebookLink</td>
+        </tr>
+        <tr>
+            <td>Instagram</td>
+            <td>@Model.InstagramLink</td>
+        </tr>
+        <tr>
+            <td>Youtube</td>
+            <td>@Model.YoutubeLink</td>
+        </tr>
+        <tr>
+            <td>Twitter</td>
+            <td>@Model.TwitterLink</td>
+        </tr>   
+        <tr>
+            <td>Whatsapp</td>
+            <td>@Model.WhatsappLink</td>
+        </tr> 
+
+    </tbody>
+</table>
+
+

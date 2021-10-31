@@ -1,0 +1,101 @@
+﻿@model Ibrahim_Belal.Models.Artist
+@{
+    ViewBag.Title = "ArtistForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="font-weight: bold; font-size: 47px; margin: 21px;">Edit Artist</h2>
+
+@using (Html.BeginForm("Save", "Artist", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(a => a.Name)
+        @Html.TextBoxFor(a => a.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.Address)
+        @Html.TextBoxFor(a => a.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Address)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.PhoneNumber)
+        @Html.TextBoxFor(a => a.PhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.PhoneNumber)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.WorkingPeriod)
+        @Html.TextBoxFor(a => a.WorkingPeriod, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.WorkingPeriod)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.HeaderText)
+        @Html.TextBoxFor(a => a.HeaderText, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.HeaderText)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.AboutText)
+        @Html.TextAreaFor(a => a.AboutText, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.AboutText)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.PortfolioText)
+        @Html.TextBoxFor(a => a.PortfolioText, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.PortfolioText)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.ServicesText)
+        @Html.TextBoxFor(a => a.ServicesText, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.ServicesText)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.TestimonialsText)
+        @Html.TextBoxFor(a => a.TestimonialsText, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.TestimonialsText)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.ContactText)
+        @Html.TextBoxFor(a => a.ContactText, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.ContactText)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.FacebookLink)
+        @Html.TextBoxFor(a => a.FacebookLink, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.FacebookLink)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.InstagramLink)
+        @Html.TextBoxFor(a => a.InstagramLink, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.InstagramLink)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.YoutubeLink)
+        @Html.TextBoxFor(a => a.YoutubeLink, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.YoutubeLink)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.TwitterLink)
+        @Html.TextBoxFor(a => a.TwitterLink, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.TwitterLink)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.WhatsappLink)
+        @Html.TextBoxFor(a => a.WhatsappLink, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.WhatsappLink)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.HeroImagePath, new { @class = "control-label col-md-2" })
+        <input type="file" name="HeroImageFile" />
+        @Model.HeroImagePath
+        @Html.ValidationMessageFor(a => a.HeroImagePath)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.AboutImagePath, new { @class = "control-label col-md-2" })
+        <input type="file" name="AboutImageFile" />
+        @Model.AboutImagePath
+        @Html.ValidationMessageFor(a => a.AboutImagePath)
+    </div>
+
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-success">Save</button>
+}

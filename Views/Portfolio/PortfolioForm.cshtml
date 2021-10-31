@@ -1,0 +1,39 @@
+﻿@model Ibrahim_Belal.ViewModels.PortfolioViewModel
+@{
+    ViewBag.Title = "PortfolioForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.Project.Id == 0)
+{
+    <h2 style="font-weight: bold; font-size: 47px; margin: 21px;">New Project</h2>
+}
+else
+{
+    <h2 style="font-weight: bold; font-size: 47px; margin: 21px;">Edit Project</h2>
+}
+
+
+@using (Html.BeginForm("Save", "Portfolio", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Project.Title)
+        @Html.TextBoxFor(m => m.Project.Title, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Project.Title)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Project.CategoryId)
+        @Html.DropDownListFor(m => m.Project.CategoryId, new SelectList(Model.Categories, "Id", "Name"), "Select Category", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Project.CategoryId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Project.ImagePath, new { @class = "control-label col-md-2" })
+        <input type="file" name="Project.ImageFile"/>
+        @Model.Project.ImagePath
+        @Html.ValidationMessageFor(m => m.Project.ImagePath)
+    </div>
+
+    @Html.HiddenFor(m => m.Project.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-success">Save</button>
+}

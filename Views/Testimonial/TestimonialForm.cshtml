@@ -1,0 +1,38 @@
+﻿@model Ibrahim_Belal.Models.Testimonial
+@{
+    ViewBag.FeedBack = "TestimonialForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.Id == 0)
+{
+    <h2 style="font-weight: bold; font-size: 47px; margin: 21px;">New Testimonial</h2>
+}
+else
+{
+    <h2 style="font-weight: bold; font-size: 47px; margin: 21px;">Edit Testimonial</h2>
+}
+
+@using (Html.BeginForm("Save", "Testimonial", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(t => t.Name)
+        @Html.TextBoxFor(t => t.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(t => t.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(t => t.FeedBack)
+        @Html.TextAreaFor(t => t.FeedBack, new { @class = "form-control" })
+        @Html.ValidationMessageFor(t => t.FeedBack)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(t => t.ImagePath, new { @class = "control-label col-md-2" })
+        <input type="file" name="ImageFile"/>
+        @Model.ImagePath
+        @Html.ValidationMessageFor(t => t.ImagePath)
+    </div>
+    @Html.HiddenFor(t => t.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-success">Save</button>
+}

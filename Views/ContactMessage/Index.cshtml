@@ -1,0 +1,40 @@
+﻿@model List<Ibrahim_Belal.Models.ContactMessage>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="font-weight: bold; text-align: center; font-size: 47px; margin: 21px;">Messages List</h1>
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>EMail</th>
+            <th>Message</th>
+            <th>Address</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var message in Model)
+        {
+        <tr>
+            <td>@message.Name</td>
+            <td>@message.PhoneNumber</td>
+            <td>@message.EMail</td>
+            <td>@message.Message</td>
+            <td>@message.Address</td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new {id = message.Id},
+                    new { @class = "btn btn-danger" , onclick = "return confirm('Are you Sure You Want To Delete It ?');"})
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
